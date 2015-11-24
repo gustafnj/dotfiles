@@ -42,12 +42,20 @@ alias ls='ls -G'
 alias la='ls -ltra'
 alias lt='ls -ltr'
 
-# Customize to your needs...
-export HISTSIZE=
-export HISTFILESIZE=
-HISTFILE=~/.zhistory
-export VISUAL=/usr/local/bin/vim
-export EDITOR=/usr/local/bin/vim
+# setup history
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=9999999
+SAVEHIST=9999999
+HISTCONTROL=erasedups
+setopt APPEND_HISTORY
+setopt INC_APPEND_HISTORY
+setopt HIST_IGNORE_DUPS
+setopt HIST_FIND_NO_DUPS
+setopt HIST_REDUCE_BLANKS
+setopt EXTENDED_HISTORY
+
+export VISUAL=/usr/bin/vim
+export EDITOR=/usr/bin/vim
 autoload -Uz compinit
 compinit
 

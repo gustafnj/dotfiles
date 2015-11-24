@@ -156,8 +156,12 @@ set spell spelllang=en_us
 " python-syntax
 let g:python_highlight_all = 1
 
-" python-mode settings
 let g:syntastic_python_checkers=['pyflakes']
+let g:syntastic_mode_map = { "mode": "active",
+                           \ "active_filetypes": [],
+                           \ "passive_filetypes": ["scala"] }
+
+" python-mode settings
 let g:pymode_rope=0
 let g:pymode_options_max_line_length=100
 

@@ -41,6 +41,7 @@ alias du='du -h'
 alias ls='ls -G'
 alias la='ls -ltra'
 alias lt='ls -ltr'
+alias init_scala='g8 fayimora/basic-scala-project'
 
 # setup history
 HISTFILE=$HOME/.zsh_history

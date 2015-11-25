@@ -3,7 +3,7 @@
 # install homebrew
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-brew install gcc git postgresql tmux
+brew install gcc git giter8 postgresql sbt tmux
 
 VIM_BUNDLE_PATH=${HOME}/.vim/bundle
 VIM_AUTOLOAD_PATH=${HOME}/.vim/autoload
@@ -51,7 +51,7 @@ done
 curl -kL https://raw.github.com/saghul/pythonz/master/pythonz-install | bash
 ZSHRC_PATH=${TARGET_PATH}
 source ${ZSHRC_PATH}
-pythonz install 2.7.6
+pythonz install 2.7.10
 sudo easy_install pip
 sudo pip install virtualenv
 sudo pip install virtualenvwrapper

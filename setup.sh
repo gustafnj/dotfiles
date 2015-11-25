@@ -1,6 +1,15 @@
 # install homebrew
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
+brew install gcc git postgresql tmux
+
+# pythonz
+curl -kL https://raw.github.com/saghul/pythonz/master/pythonz-install | bash
+pythonz install 2.7.10
+sudo easy_install pip
+sudo pip install virtualenv
+sudo pip install virtualenvwrapper
+
 VIM_BUNDLE_PATH=${HOME}/.vim/bundle
 GITHUB_PATH=https://github.com
 
@@ -23,7 +32,6 @@ VIM_PKGS='
 
 for PKG in $VIM_PKGS; do 
     PKG_NAME=${PKG##*/}
-    echo $PKG_NAME
     git clone "${GITHUB_PATH}/${PKG}" "${VIM_BUNDLE_PATH}/${PKG_NAME}"
 done
 

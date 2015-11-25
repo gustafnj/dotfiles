@@ -82,7 +82,6 @@ export PATH
 [[ -s $HOME/.pythonz/etc/zshrc ]] && source $HOME/.pythonz/etc/zshrc
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/share/python/virtualenvwrapper.sh
-[[ -s $HOME/.pythonz/etc/bashrc ]] && source $HOME/.pythonz/etc/bashrc
 
 # default virtualenv
 workon ng

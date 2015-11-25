@@ -14,7 +14,7 @@ set encoding=utf-8
 filetype off
 call pathogen#infect()
 call pathogen#helptags()
-call pathogen#incubate()
+call pathogen#infect('bundle/{}')
 
 filetype plugin indent on
 syntax enable

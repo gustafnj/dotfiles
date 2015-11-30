@@ -1,19 +1,31 @@
 - hosts: 127.0.0.1
+  vars:
+    vim_repos:
+      bling/vim-airline: vim-airline
+      hdima/python-syntax: python-syntax
+      klen/python-mode : python-mode
+      scrooloose/syntastic: syntastic
+      scrooloose/nerdtree: nerdtree
+      tpope/vim-surround: vim-surround
+      vim-scripts/Align: Align
+      voithos/vim-python-matchit: vim-python-matchit
+      altercation/vim-colors-solarized: vim-colors-solarized
+
   tasks:
   - set_fact:
       home_dir: /Users/ng
       dotfiles_dir: /src/dotfiles
       vim_bundle: /Users/ng/.vim/bundle
       vim_autoload: /Users/ng/.vim/autoload
+      github_url: https://github.com
+      oh_my_zsh: .oh-my-zsh
 
-  - name: symlink zshrc
-    file: src={{ home_dir }}{{ dotfiles_dir }}/.zshrc dest=/Users/ng/.zshrc state=link
-
-  - name: symlink vimrc
-    file: src={{ home_dir }}{{ dotfiles_dir }}/.vimrc dest=/Users/ng/.vimrc state=link
-
-  - name: symlink tmux.conf
-    file: src={{ home_dir }}{{ dotfiles_dir }}/.tmux.conf dest=/Users/ng/.tmux.conf state=link
+  - name: symlink config files
+    file: src={{ home_dir }}{{ dotfiles_dir }}/{{ item }} dest={{ home_dir}}/{{ item }} state=link
+    with_items:
+      - .tmux.conf
+      - .vimrc
+      - .zshrc
 
   - name: make vim bundle directory
     file: path={{ vim_bundle }} state=directory
@@ -23,3 +35,31 @@
 
   - name: install pathogen for vim
     command: curl -LSso {{ vim_autoload }}/pathogen.vim https://tpo.pe/pathogen.vim
+
+  - name: download some github repos for vim
+    git: repo={{ github_url }}/{{ item.key }} dest={{ vim_bundle }}/{{ item.value }}
+    with_dict: "{{ vim_repos }}"
+
+  - name: install oh-my-zsh
+    git: repo={{ github_url }}/robbyrussell/oh-my-zsh.git dest={{ home_dir }}/{{ oh_my_zsh }} update=yes
+
+  - name: install some packags via homebrew
+    homebrew: name={{ item }} state=present upgrade_all=yes
+    with_items:
+      - gcc
+      - git
+      - giter8
+      - postgresql
+      - sbt
+      - tmux
+
+  - name: install pip
+    easy_install: name=pip state=latest
+    sudo: yes
+
+  - name: install virtualenv for python.
+    pip: name={{ item }} extra_args='--ignore-installed six'
+    with_items:
+      - virtualenv
+      - virtualenvwrapper
+    sudo: yes

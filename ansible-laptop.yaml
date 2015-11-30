@@ -19,6 +19,7 @@
       vim_autoload: /Users/ng/.vim/autoload
       github_url: https://github.com
       oh_my_zsh: .oh-my-zsh
+      virtualenv: /.virtualenvs/v2710
 
   - name: symlink config files
     file: src={{ home_dir }}{{ dotfiles_dir }}/{{ item }} dest={{ home_dir}}/{{ item }} state=link
@@ -34,7 +35,7 @@
     file: path={{ vim_autoload }} state=directory
 
   - name: install pathogen for vim
-    command: curl -LSso {{ vim_autoload }}/pathogen.vim https://tpo.pe/pathogen.vim
+    command: curl -LSso {{ vim_autoload }}/pathogen.vim https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 
   - name: download some github repos for vim
     git: repo={{ github_url }}/{{ item.key }} dest={{ vim_bundle }}/{{ item.value }}
@@ -43,6 +44,10 @@
   - name: install oh-my-zsh
     git: repo={{ github_url }}/robbyrussell/oh-my-zsh.git dest={{ home_dir }}/{{ oh_my_zsh }} update=yes
 
+  - name: install pip
+    easy_install: name=pip
+    sudo: yes
+
   - name: install some packags via homebrew
     homebrew: name={{ item }} state=present upgrade_all=yes
     with_items:
@@ -50,12 +55,10 @@
       - git
       - giter8
       - postgresql
+      - pyenv
       - sbt
       - tmux
-
-  - name: install pip
-    easy_install: name=pip state=latest
-    sudo: yes
+      - homebrew/boneyard/pyenv-pip-rehash
 
   - name: install virtualenv for python.
     pip: name={{ item }} extra_args='--ignore-installed six'
@@ -63,3 +66,19 @@
       - virtualenv
       - virtualenvwrapper
     sudo: yes
+
+  - name: use pyenv for python version management
+    command: pyenv install 2.7.10
+    register: command_result
+    ignore_errors: yes
+
+  - name: setup virtualenv
+    command: virtualenv {{ home_dir }}{{ virtualenv }} -p {{ home_dir }}/.pyenv/versions/2.7.10/bin/python
+
+  - name: install virtualenv for python.
+    pip: name={{ item }} virtualenv={{ home_dir }}{{ virtualenv }}
+    with_items:
+      - ipython
+      - pandas
+      - scikit-learn
+      - seaborn

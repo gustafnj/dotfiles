@@ -80,12 +80,12 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 # python stuff
 PATH="/usr/local/bin:/usr/local/sbin:/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
 export PATH
-[[ -s $HOME/.pythonz/etc/zshrc ]] && source $HOME/.pythonz/etc/zshrc
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/share/python/virtualenvwrapper.sh
 
+eval "$(pyenv init -)"
 # default virtualenv
-workon ng
+workon v2710
 
 # command prompt
 function virtualenv_info {

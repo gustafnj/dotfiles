@@ -1,0 +1,25 @@
+- hosts: 127.0.0.1
+  tasks:
+  - set_fact:
+      home_dir: /Users/ng
+      dotfiles_dir: /src/dotfiles
+      vim_bundle: /Users/ng/.vim/bundle
+      vim_autoload: /Users/ng/.vim/autoload
+
+  - name: symlink zshrc
+    file: src={{ home_dir }}{{ dotfiles_dir }}/.zshrc dest=/Users/ng/.zshrc state=link
+
+  - name: symlink vimrc
+    file: src={{ home_dir }}{{ dotfiles_dir }}/.vimrc dest=/Users/ng/.vimrc state=link
+
+  - name: symlink tmux.conf
+    file: src={{ home_dir }}{{ dotfiles_dir }}/.tmux.conf dest=/Users/ng/.tmux.conf state=link
+
+  - name: make vim bundle directory
+    file: path={{ vim_bundle }} state=directory
+
+  - name: make vim autoload directory
+    file: path={{ vim_autoload }} state=directory
+
+  - name: install pathogen for vim
+    command: curl -LSso {{ vim_autoload }}/pathogen.vim https://tpo.pe/pathogen.vim

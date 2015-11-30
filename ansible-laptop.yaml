@@ -1,25 +1,9 @@
 - hosts: 127.0.0.1
-  vars:
-    vim_repos:
-      bling/vim-airline: vim-airline
-      hdima/python-syntax: python-syntax
-      klen/python-mode : python-mode
-      scrooloose/syntastic: syntastic
-      scrooloose/nerdtree: nerdtree
-      tpope/vim-surround: vim-surround
-      vim-scripts/Align: Align
-      voithos/vim-python-matchit: vim-python-matchit
-      altercation/vim-colors-solarized: vim-colors-solarized
+  remote_user: ng
+  vars_files:
+    - variables.yaml
 
   tasks:
-  - set_fact:
-      home_dir: /Users/ng
-      dotfiles_dir: /src/dotfiles
-      vim_bundle: /Users/ng/.vim/bundle
-      vim_autoload: /Users/ng/.vim/autoload
-      github_url: https://github.com
-      oh_my_zsh: .oh-my-zsh
-      virtualenv: /.virtualenvs/v2710
 
   - name: symlink config files
     file: src={{ home_dir }}{{ dotfiles_dir }}/{{ item }} dest={{ home_dir}}/{{ item }} state=link
@@ -35,10 +19,11 @@
     file: path={{ vim_autoload }} state=directory
 
   - name: install pathogen for vim
-    command: curl -LSso {{ vim_autoload }}/pathogen.vim https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+    command: curl -LSso {{ vim_autoload }}/pathogen.vim 
+                https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim
 
   - name: download some github repos for vim
-    git: repo={{ github_url }}/{{ item.key }} dest={{ vim_bundle }}/{{ item.value }}
+    git: repo={{ github_url }}/{{ item.key }} dest={{ vim_bundle }}/{{ item.value }} update=yes
     with_dict: "{{ vim_repos }}"
 
   - name: install oh-my-zsh
@@ -69,7 +54,8 @@
     ignore_errors: yes
 
   - name: setup virtualenv
-    command: virtualenv {{ home_dir }}{{ virtualenv }} -p {{ home_dir }}/.pyenv/versions/2.7.10/bin/python
+    command: virtualenv {{ home_dir }}{{ virtualenv }} 
+               -p {{ home_dir }}/.pyenv/versions/2.7.10/bin/python
 
   - name: install virtualenv for python.
     pip: name={{ item }} virtualenv={{ home_dir }}{{ virtualenv }}

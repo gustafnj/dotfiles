@@ -1,0 +1,17 @@
+vim_repos:
+  bling/vim-airline: vim-airline
+  hdima/python-syntax: python-syntax
+  klen/python-mode: python-mode
+  scrooloose/syntastic: syntastic
+  scrooloose/nerdtree: nerdtree
+  tpope/vim-surround: vim-surround
+  vim-scripts/Align: Align
+  voithos/vim-python-matchit: vim-python-matchit
+  altercation/vim-colors-solarized: vim-colors-solarized
+home_dir: /Users/ng
+dotfiles_dir: /src/dotfiles
+vim_bundle: /Users/ng/.vim/bundle
+vim_autoload: /Users/ng/.vim/autoload
+github_url: https://github.com
+oh_my_zsh: .oh-my-zsh
+virtualenv: /.virtualenvs/v2710

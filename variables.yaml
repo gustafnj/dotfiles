@@ -1,3 +1,32 @@
+analytics_pkgs:
+  - ipython
+  - pandas
+  - scikit-learn
+  - seaborn
+dotfiles_dir: /src/dotfiles
+homebrew_pkgs:
+  - gcc
+  - git
+  - giter8
+  - postgresql
+  - pyenv
+  - sbt
+  - tmux
+  - homebrew/boneyard/pyenv-pip-rehash
+github_url: https://github.com
+home_dir: /Users/ng
+oh_my_zsh: .oh-my-zsh
+pip_pkgs:
+  - virtualenv
+  - virtualenvwrapper
+py_version: 2.7.10
+pyenv_bin: /Users/ng/.pyenv/versions/2.7.10/bin/python
+rc_files:
+  - .tmux.conf
+  - .vimrc
+  - .zshrc
+vim_autoload: /Users/ng/.vim/autoload
+vim_bundle: /Users/ng/.vim/bundle
 vim_repos:
   bling/vim-airline: vim-airline
   hdima/python-syntax: python-syntax
@@ -8,10 +37,4 @@ vim_repos:
   vim-scripts/Align: Align
   voithos/vim-python-matchit: vim-python-matchit
   altercation/vim-colors-solarized: vim-colors-solarized
-home_dir: /Users/ng
-dotfiles_dir: /src/dotfiles
-vim_bundle: /Users/ng/.vim/bundle
-vim_autoload: /Users/ng/.vim/autoload
-github_url: https://github.com
-oh_my_zsh: .oh-my-zsh
 virtualenv: /.virtualenvs/v2710

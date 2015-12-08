@@ -1,8 +1,15 @@
-analytics_pkgs:
+python_pkgs:
   - ipython
+  - nltk
+  - oauth2
   - pandas
+  - pyOpenSSL
+  - regex
+  - service_identity
   - scikit-learn
   - seaborn
+  - tweepy
+  - twisted
 dotfiles_dir: /src/dotfiles
 homebrew_pkgs:
   - gcc
@@ -33,8 +40,10 @@ vim_repos:
   klen/python-mode: python-mode
   scrooloose/syntastic: syntastic
   scrooloose/nerdtree: nerdtree
+  scrooloose/nerdcommenter: nerdcommenter
   tpope/vim-surround: vim-surround
   vim-scripts/Align: Align
   voithos/vim-python-matchit: vim-python-matchit
   altercation/vim-colors-solarized: vim-colors-solarized
+  derekwyatt/vim-scala: vim-scala
 virtualenv: /.virtualenvs/v2710

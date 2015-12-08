@@ -48,4 +48,4 @@
   - name: install virtualenv for python.
     pip: name={{ item }} virtualenv={{ home_dir }}{{ virtualenv }} state=latest
     with_items:
-      "{{ analytics_pkgs }}"
+      "{{ python_pkgs }}"

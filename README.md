@@ -8,4 +8,4 @@ Installation (OSX):
 * Install ansible (from repo root dir):
   `./install_ansible.sh`
 * Configure dev environment`
-  `ansible-playbook -i inventory --connection=local --ask-sudo-pass ansible-laptop.yaml`
+  `ansible-playbook -i inventory --connection=local --ask-sudo-pass laptop.yaml`

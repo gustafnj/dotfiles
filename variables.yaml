@@ -10,7 +10,7 @@ python_pkgs:
   - seaborn
   - tweepy
   - twisted
-dotfiles_dir: /src/dotfiles
+dotfiles_dir: /src/laptop-setup
 homebrew_pkgs:
   - gcc
   - git
@@ -20,6 +20,7 @@ homebrew_pkgs:
   - sbt
   - tmux
   - homebrew/boneyard/pyenv-pip-rehash
+  - zsh
 github_url: https://github.com
 home_dir: /Users/ng
 oh_my_zsh: .oh-my-zsh

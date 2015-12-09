@@ -1,5 +1,6 @@
 - hosts: 127.0.0.1
-  remote_user: ng
+  user: ng
+  connection: local
   vars_files:
     - variables.yaml
 
@@ -27,7 +28,7 @@
   - name: install oh-my-zsh
     git: repo={{ github_url }}/robbyrussell/oh-my-zsh.git dest={{ home_dir }}/{{ oh_my_zsh }} update=yes
 
-  - name: install some packags via homebrewn
+  - name: install some packags via homebrew
     homebrew: name={{ item }} upgrade_all=yes state=latest
     with_items:
       "{{ homebrew_pkgs }}"

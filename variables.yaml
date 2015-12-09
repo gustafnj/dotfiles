@@ -10,7 +10,7 @@ python_pkgs:
   - seaborn
   - tweepy
   - twisted
-dotfiles_dir: /src/dotfiles
+dotfiles_dir: /src/laptop-setup
 homebrew_pkgs:
   - gcc
   - git

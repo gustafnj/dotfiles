@@ -1,0 +1,16 @@
+---
+- name: Install some packags via homebrew
+  homebrew:
+    name: "{{ item }}"
+    upgrade_all: yes
+    state: latest
+  with_items:
+    - gcc
+    - git
+    - giter8
+    - postgresql
+    - pyenv
+    - sbt
+    - tmux
+    - homebrew/boneyard/pyenv-pip-rehash
+    - zsh

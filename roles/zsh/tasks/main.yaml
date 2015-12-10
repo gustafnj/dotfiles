@@ -1,0 +1,20 @@
+---
+- name: Download oh-my-zsh.
+  git:
+    repo: "{{ github_url }}/robbyrussell/oh-my-zsh.git"
+    dest: "{{ ansible_env.HOME }}/.oh-my-zsh"
+    update: yes
+
+- name: add zsh to /etc/shells
+  lineinfile:
+    backup: yes
+    dest: /etc/shells
+    regexp: ^/usr/local/bin/zsh
+    line: /usr/local/bin/zsh
+  sudo: yes
+  when: ansible_os_family == 'Darwin'
+
+- name: change shells (assumes homebrew version of zsh for mac)
+  command: chsh -s /usr/local/bin/zsh {{ ansible_env.USER }}
+  sudo: yes
+  when: ansible_os_family == 'Darwin'

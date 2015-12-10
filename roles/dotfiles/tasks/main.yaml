@@ -1,0 +1,10 @@
+---
+- name: Make symlinks for the dotfile triumvirate
+  file:
+    src: "{{ playbook_dir }}/roles/dotfiles/files/{{ item }}"
+    dest: "{{ ansible_env.HOME }}/{{ item }}"
+    state: link
+  with_items:
+    - .tmux.conf
+    - .vimrc
+    - .zshrc

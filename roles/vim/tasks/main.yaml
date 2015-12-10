@@ -1,0 +1,20 @@
+---
+- name: make vim bundle directory
+  file:
+    path: "{{ vim_bundle }}"
+    state: directory
+
+- name: make vim autoload directory
+  file:
+    path: "{{ vim_autoload }}"
+    state: directory
+
+- name: install pathogen for vim
+  command: curl -LSso {{ vim_autoload }}/pathogen.vim arg {{ pathogen_url }}
+
+- name: download some github repos for vim
+  git:
+    repo: "{{ github_url }}/{{ item.key }}"
+    dest: "{{ vim_bundle }}/{{ item.value }}"
+    update: yes
+  with_dict: "{{ vim_repos }}"

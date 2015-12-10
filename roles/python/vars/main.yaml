@@ -1,0 +1,3 @@
+---
+pyenv_bin: "{{ ansible_env.HOME }}/.pyenv/versions/2.7.10/bin/python"
+virtualenv: "{{ ansible_env.HOME }}/.virtualenvs/analytics"

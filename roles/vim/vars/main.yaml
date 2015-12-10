@@ -1,0 +1,17 @@
+---
+pathogen_url: https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+vim_autoload: "{{ ansible_env.HOME }}/.vim/autoload"
+vim_bundle: "{{ ansible_env.HOME }}/.vim/bundle"
+vim_repos:
+  bling/vim-airline: vim-airline
+  hdima/python-syntax: python-syntax
+  klen/python-mode: python-mode
+  scrooloose/syntastic: syntastic
+  scrooloose/nerdtree: nerdtree
+  scrooloose/nerdcommenter: nerdcommenter
+  tpope/vim-surround: vim-surround
+  vim-scripts/Align: Align
+  voithos/vim-python-matchit: vim-python-matchit
+  altercation/vim-colors-solarized: vim-colors-solarized
+  derekwyatt/vim-scala: vim-scala
+  chase/vim-ansible-yaml: vim-ansible-yaml

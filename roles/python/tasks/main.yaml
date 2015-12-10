@@ -1,0 +1,32 @@
+---
+- name: Install pip.(add state once upgraded to ansible 2.0)
+  easy_install: name=pip
+  sudo: yes
+
+- name: Install virtualenv and virtualenvwrapper
+  pip: name={{ item }} extra_args='--ignore-installed six' state=latest
+  with_items:
+    - virtualenv
+    - virtualenvwrapper
+  sudo: yes
+
+- name: Python version management (uses version 2.7.10)
+  command: pyenv install 2.7.10 creates={{ pyenv_bin }}
+
+- name: make a virtualenv
+  command: virtualenv {{ virtualenv }} -p {{ pyenv_bin }}
+
+- name: install python packages used for data analysis
+  pip: name={{ item }} virtualenv={{ virtualenv }} state=latest
+  with_items:
+    - ipython
+    - nltk
+    - oauth2
+    - pandas
+    - pyOpenSSL
+    - regex
+    - service_identity
+    - scikit-learn
+    - seaborn
+    - tweepy
+    - twisted

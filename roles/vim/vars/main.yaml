@@ -10,6 +10,8 @@ vim_repos:
   scrooloose/nerdtree: nerdtree
   scrooloose/nerdcommenter: nerdcommenter
   tpope/vim-surround: vim-surround
+  tpope/vim-sleuth: vim-sleuth
+  tpope/vim-fugitive: vim-fugitive
   vim-scripts/Align: Align
   voithos/vim-python-matchit: vim-python-matchit
   altercation/vim-colors-solarized: vim-colors-solarized

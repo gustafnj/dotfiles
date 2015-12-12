@@ -21,4 +21,4 @@ if [ ${CONTINUE} = "y" ]; then
     brew install ansible
 fi
 
-ansible-playbook laptop.yaml -K -i inventory
+ansible-playbook laptop.yaml -K -i inventory --ask-sudo-pass

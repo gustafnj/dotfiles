@@ -1,0 +1,244 @@
+---
+#- name: set computer name
+  #commmand: sudo scutil --set ComputerName "ng"
+
+#- name: set host name
+  #commmand: sudo scutil --set HostName  "ng"
+
+#- name: set local host name
+  #commmand: sudo scutil --set LocalHostName  "ng"
+
+#- name: set NetBIOS name
+  #commmand: sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string  "ng"
+
+- name: Set antialiasing threshold
+  command: defaults write NSGlobalDomain AppleAntiAliasingThreshold -int 4
+
+- name: Set color scheme to graphite
+  command: defaults write NSGlobalDomain AppleAquaColorVariant -int 6
+
+- name: disable transparency
+  command: defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
+
+- name: disable mouse swipe navigation
+  command: defaults write NSGlobalDomain AppleEnableMouseSwipeNavigateWithScrolls -bool false
+
+- name: disable trackpad swipe navigation
+  command: defaults write NSGlobalDomain AppleEnableSwipeNavigateWithScrolls -bool false
+
+- name: use tap to click
+  command: defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
+
+- name: font smoothing settings
+  command: defaults write NSGlobalDomain AppleFontSmoothing -int 2
+
+- name: set highlight color
+  command: defaults write NSGlobalDomain AppleHighlightColor -string "0.301831 1.000000 0.956912"
+
+- name: enable full keyboard access
+  command: defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
+- name: miniaturize on double-click
+  command: defaults write NSGlobalDomain AppleMiniaturizeOnDoubleClick -bool false
+ 
+- name: miniaturize on double-click
+  command: defaults write NSGlobalDomain AppleMiniaturizeOnDoubleClick -bool false
+ 
+- name: use world time
+  command: defaults write NSGlobalDomain AppleICUForce12HourTime -bool false
+
+- name: Use smooth scrolling
+  command: defaults write NSGlobalDomain AppleScrollAnimationEnabled -bool true
+
+- name: Enable key repeat
+  command: defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
+
+- name: Set delay until repeat
+  command: defaults write NSGlobalDomain InitialKeyRepeat -int 10
+
+- name: Set a fast keyboard repeat rate
+  command: defaults write NSGlobalDomain KeyRepeat -int 0
+
+- name: show all filename extensions
+  command: defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+- name: disable spelling correction
+  command: defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
+
+- name: disable app seppuku
+  command: defaults write NSGlobalDomain NSDisableAutomaticTermination -bool true
+
+- name: disable window animations
+  command: defaults write NSGlobalDomain NSAutomaticWindowAnimationsEnabled -bool false
+
+- name: disable auto saving documents to cloud
+  command: defaults write NSGlobalDomain NSDocumentSaveNewDocumentsToCloud -bool false
+
+- name: use expanded save menu
+  command: defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
+
+- name: Disable smart quotes
+  command: defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
+
+- name: Disable smart dashes
+  command: defaults write NSGlobalDomain NSAutomaticDashSubstitutionEnabled -bool false
+
+- name: set sidebar icon size
+  command: defaults write NSGlobalDomain NSTableViewDefaultSizeMode -int 1
+
+- name: show control characters
+  command: defaults write NSGlobalDomain NSTextShowsControlCharacters -bool true
+
+- name: set window resize time
+  command: defaults write NSGlobalDomain NSWindowResizeTime -float 0.001
+
+- name: disable saving application state on quit
+  command: defaults write NSGlobalDomain NSQuitAlwaysKeepsWindows -bool true
+
+- name: default to column mode for open dialogs
+  command: defaults write NSGlobalDomain NavPanelFileListModeForOpenMode -int 1
+
+- name: default to column mode for save dialogs
+  command: defaults write NSGlobalDomain NavPanelFileListModeForSaveMode -int 1
+
+- name: fix scrolling behavior
+  command: defaults write NSGlobalDomain com.apple.swipescrolldirection -bool false
+
+- name: set trackpad speed
+  command: defaults write NSGlobalDomain com.apple.trackpad.scaling -float 3.0
+
+- name: set trackpad scrolling
+  command: defaults write NSGlobalDomain com.apple.trackpad.scrolling -float 3.0
+
+- name: Always show scroll bars
+  command: defaults write NSGlobalDomain AppleShowScrollBars -string "Always"
+
+- name: set trackpad forceClick
+  command: defaults write NSGlobalDomain com.apple.trackpad.forceClick -bool true
+
+- name: disable feedback sounds
+  command: defaults write NSGlobalDomain com.apple.sound.beep.feedback -bool false
+
+- name: ask for password with screesaver
+  command: defaults write com.apple.screensaver askForPassword -bool true
+
+- name: eliminate spring delay when opening directories
+  command: defaults write NSGlobalDomain com.apple.springing.delay -float 0
+
+- name: enabling springy directories
+  command: defaults write NSGlobalDomain com.apple.springing.enabled -bool true
+
+- name: set password delay for screesaver to 5 seconds
+  command: defaults write com.apple.screensaver askForPasswordDelay -int 5
+
+- name: use 2D dock
+  command: defaults write com.apple.dock no-glass -bool true
+
+- name: disable Dock bouncing
+  command: defaults write com.apple.dock no-bouncing -bool true
+
+- name: Disable magnification
+  command: defaults write com.apple.dock magnification -bool false
+
+- name: spring load all the things
+  command: defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
+
+- name: minimize to app instead of new tile
+  command: defaults write com.apple.dock minimize-to-application -bool true
+
+- name: set bottom left to screensaver hot-corner
+  command: defaults write com.apple.dock wvous-bl-corner -int 5
+
+- name: set bottom left to screensaver hot-corner
+  command: defaults write com.apple.dock wvous-bl-modifier -int 0
+  
+- name: set top left to mission control hot-corner
+  command: defaults write com.apple.dock wvous-tl-corner -int 2
+
+- name: set top left to mission control hot-corner
+  command: defaults write com.apple.dock wvous-tl-modifier -int 0
+
+- name: use scale effect for Dock
+  command: defaults write com.apple.dock mineffect -string "scale"
+
+- name: Mission control speed
+  command: defaults write com.apple.dock expose-animation-duration -float 0.0
+
+- name: Save screen shots to screen_shots directory
+  command: defaults write com.apple.screencapture location -string "$HOME/screen_shots"
+
+- name: Save screen shots as PNGs
+  command: defaults write com.apple.screencapture type -string "png"
+
+- name: disable shadows in screen shots
+  command: defaults write com.apple.screencapture disable-shadow -bool true
+
+- name: view Dashboard as overlay
+  command: defaults write com.apple.dock dashboard-in-overlay -bool true
+
+- name: disable window animations
+  command: defaults write com.apple.finder DisableAllAnimations -bool true
+
+- name: show status bar
+  command: defaults write com.apple.finder ShowStatusBar -bool true
+
+- name: show path bar
+  command: defaults write com.apple.finder ShowPathBar -bool true
+
+- name: show full path in Finder window titles
+  command: defaults write com.apple.finder _FXShowPosixPathInTitle -bool true
+
+- name: set default search scope to current directory
+  command: defaults write com.apple.finder FXDefaultSearchScope -string "SCcf"
+
+- name: hide the Dock
+  command: defaults write com.apple.dock autohide -bool true
+
+- name: set Dock hide delay
+  command: defaults write com.apple.dock autohide-delay -float 0.0
+
+- name: set Dock auto hide time modified
+  command: defaults write com.apple.dock autohide-time-modifier -float 0.0
+
+- name: disable animations when opening applications
+  command: defaults write com.apple.dock launchanim -bool false
+
+- name: remove Dock mirroring
+  command: defaults write com.apple.dock hide-mirror -bool true
+
+- name: set Dock size
+  command: defaults write com.apple.dock tilesize -int 12
+
+- name: default to List view for Finder
+  command: defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
+
+- name: disable boot chime
+  sudo: yes
+  command: sudo nvram SystemAudioVolume=" "
+
+- name: set menubar
+  command: defaults write com.apple.systemuiserver menuExtras -array "/System/Library/CoreServices/Menu Extras/Bluetooth.menu" "/System/Library/CoreServices/Menu Extras/AirPort.menu" "/System/Library/CoreServices/Menu Extras/Battery.menu" "/System/Library/CoreServices/Menu Extras/Clock.menu"
+
+- name: allow installing Apps from anywhere
+  command: sudo spctl --master-disable
+
+- name: # Disable the “Are you sure you want to open this application?” dialog
+  command: defaults write com.apple.LaunchServices LSQuarantine -bool false
+
+- name: Remap Caps Lock to Control for internal keyboard (use `ioreg -n IOHIDKeyboard -r` to get vendor and product ids)
+  command: defaults write -g com.apple.keyboard.modifiermapping.1452-585-0 -array-add '<dict><key>HIDKeyboardModifierMappingDst</key><integer>2</integer><key>HIDKeyboardModifierMappingSrc</key><integer>0</integer></dict>'
+
+- name: Turn off keyboard illumination when computer is not used for 1 minute
+  command: defaults write com.apple.BezelServices kDimTime -int 60
+
+- name: Disable the warning when changing a file extension
+  command: defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
+
+- name: Stop iTunes from responding to the keyboard media keys
+  sudo: yes
+  command: sudo launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
+
+- name: Copy preferences for iTerm
+  copy:
+    src: "{{ playbook_dir }}/roles/osx/files/com.googlecode.iterm2.plist"
+    dest: "{{ ansible_env.HOME }}/Library/Preferences/com.googlecode.iterm2.plist"

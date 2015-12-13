@@ -20,6 +20,7 @@
   pip: name={{ item }} virtualenv={{ virtualenv }} state=latest
   with_items:
     - ipython
+    - keras
     - nltk
     - oauth2
     - pandas
@@ -28,5 +29,6 @@
     - service_identity
     - scikit-learn
     - seaborn
+    - tensorflow
     - tweepy
     - twisted

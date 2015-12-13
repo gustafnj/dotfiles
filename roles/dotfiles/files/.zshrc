@@ -81,11 +81,12 @@ zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
 PATH="/usr/local/bin:/usr/local/sbin:/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
 export PATH
 export WORKON_HOME=$HOME/.virtualenvs
+export GOPATH=$HOME/go
 source /usr/local/share/python/virtualenvwrapper.sh
 
 eval "$(pyenv init -)"
 # default virtualenv
-workon analytics
+workon flask
 
 # command prompt
 function virtualenv_info {

@@ -1,14 +1,3 @@
-" additional bundles
-"   https://github.com/bling/vim-airline
-"   https://github.com/hdima/python-syntax
-"   https://github.com/klen/python-mode
-"   https://github.com/scrooloose/syntastic
-"   https://github.com/scrooloose/nerdtree
-"   https://github.com/tpope/vim-pathogen
-"   https://github.com/vim-scripts/Align
-"   https://github.com/voithos/vim-python-matchit
-"   https://github.com/altercation/vim-colors-solarized
-
 set encoding=utf-8
 "" pathogen for runtimepath plugins
 filetype off
@@ -151,12 +140,17 @@ set background=dark
 let g:solarized_termtrans=1 " avoid errors with transparent terminals
 colorscheme solarized
 
+" disable vim's obnoxious ability to set the terminal title
+set title
+let &t_ti = &t_ti . "\e[22;0t"
+let &t_te = "\e[23;0t" . &t_te
+
 set spell spelllang=en_us
 
 " python-syntax
 let g:python_highlight_all = 1
 
-let g:syntastic_python_checkers=['pyflakes']
+let g:syntastic_python_checkers=['pyflakes', 'pylint']
 let g:syntastic_mode_map = { "mode": "active",
                            \ "active_filetypes": [],
                            \ "passive_filetypes": ["scala"] }

@@ -15,6 +15,3 @@
     - tmux
     - homebrew/boneyard/pyenv-pip-rehash
     - zsh
-
-- name: install rclone
-  command: go get github.com/ncw/rclone

@@ -82,11 +82,9 @@ PATH="/usr/local/bin:/usr/local/sbin:/Library/Frameworks/Python.framework/Versio
 export PATH
 export GOPATH=$HOME/go
 
-eval "$(pyenv init -)"
-# default virtualenv
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
-workon analytics
+eval "$(pyenv init -)"
 
 # command prompt
 function virtualenv_info {

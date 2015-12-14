@@ -10,7 +10,8 @@
     state: directory
 
 - name: install pathogen for vim
-  command: curl -LSso {{ vim_autoload }}/pathogen.vim arg {{ pathogen_url }}
+  command: curl -LSso {{ vim_autoload }}/pathogen.vim {{ pathogen_url }}
+
 
 - name: download some github repos for vim
   git:

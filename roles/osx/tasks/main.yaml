@@ -119,6 +119,9 @@
 - name: disable feedback sounds
   command: defaults write NSGlobalDomain com.apple.sound.beep.feedback -bool false
 
+- name: disable UI sound effects
+  command: defaults write com.apple.systemsound "com.apple.sound.uiaudio.enabled" -int 0
+
 - name: ask for password with screesaver
   command: defaults write com.apple.screensaver askForPassword -bool true
 

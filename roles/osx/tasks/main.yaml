@@ -62,6 +62,9 @@
 - name: show all filename extensions
   command: defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
+- name: show all files
+  command: defaults write NSGlobalDomain AppleShowAllFiles -bool true
+
 - name: disable spelling correction
   command: defaults write NSGlobalDomain NSAutomaticSpellingCorrectionEnabled -bool false
 
@@ -142,6 +145,12 @@
 
 - name: Disable magnification
   command: defaults write com.apple.dock magnification -bool false
+
+- name: Remove all Dock apps
+  command: defaults write com.apple.dock persistent-apps "<array/>"
+
+- name: Remove all Dock others
+  command: defaults write com.apple.dock persistent-others "<array/>"
 
 - name: spring load all the things
   command: defaults write com.apple.dock enable-spring-load-actions-on-all-items -bool true
@@ -241,7 +250,26 @@
   sudo: yes
   command: sudo launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
 
+- name: Copy Bitstream Vera Sans Mono to fonts
+  copy:
+    src: "{{ playbook_dir }}/roles/osx/files/VeraMono.ttf"
+    dest: "{{ ansible_env.HOME }}/Library/Fonts/VeraMono.ttf"
+
 - name: Copy preferences for iTerm
   copy:
     src: "{{ playbook_dir }}/roles/osx/files/com.googlecode.iterm2.plist"
     dest: "{{ ansible_env.HOME }}/Library/Preferences/com.googlecode.iterm2.plist"
+
+- name: 'Finder: Enable Airdrop on all network interfaces'
+  shell: defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool false
+
+- name: 'Finder: Hide Back to My Mac and Bonjour Computers in Finder sidebar'
+  shell: defaults write com.apple.sidebarlists.plist networkbrowser "<dict><key>Controller</key><string>CustomListItems</string><key>CustomListItems</key><array/><key>CustomListProperties</key><dict><key>com.apple.NetworkBrowser.backToMyMacEnabled</key><false/><key>com.apple.NetworkBrowser.connectedEnabled</key><true/><key>com.apple.NetworkBrowser.bonjourEnabled</key><false/></dict></dict>"
+
+- name: Restart Finder
+  shell: killall Finder
+  ignore_errors: yes
+
+- name: Restart Dock
+  shell: killall Dock
+  ignore_errors: yes

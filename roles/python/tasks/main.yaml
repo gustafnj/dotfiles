@@ -25,6 +25,7 @@
     - oauth2
     - pandas
     - pyOpenSSL
+    - pytz
     - regex
     - service_identity
     - scikit-learn

@@ -27,6 +27,7 @@
     - pyOpenSSL
     - pytz
     - regex
+    - requests
     - service_identity
     - scikit-learn
     - seaborn

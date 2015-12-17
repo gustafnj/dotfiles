@@ -85,6 +85,7 @@ export GOPATH=$HOME/go
 export WORKON_HOME=$HOME/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 eval "$(pyenv init -)"
+eval "$(hub alias -s)"
 
 # command prompt
 function virtualenv_info {

@@ -1,1 +1,1 @@
-source .zshrc && clear
+source ~/.zshrc && clear

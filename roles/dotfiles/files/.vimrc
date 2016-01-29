@@ -161,3 +161,4 @@ let g:pymode_options_max_line_length=100
 
 " open NERDtree
 map <leader>ne :NERDTreeToggle<CR>
+set tags=/Users/ng/tags

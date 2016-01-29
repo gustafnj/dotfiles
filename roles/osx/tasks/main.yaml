@@ -1,15 +1,12 @@
 ---
-#- name: set computer name
-  #commmand: sudo scutil --set ComputerName "ng"
+- name: Set computer name
+  command: sudo scutil --set ComputerName "ng"
 
-#- name: set host name
-  #commmand: sudo scutil --set HostName  "ng"
+- name: Set host name
+  command: sudo scutil --set HostName "ng"
 
-#- name: set local host name
-  #commmand: sudo scutil --set LocalHostName  "ng"
-
-#- name: set NetBIOS name
-  #commmand: sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string  "ng"
+- name: Set local host name
+  command: sudo scutil --set LocalHostName "ng"
 
 - name: Set antialiasing threshold
   command: defaults write NSGlobalDomain AppleAntiAliasingThreshold -int 4
@@ -225,7 +222,6 @@
   command: defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
 
 - name: disable boot chime
-  sudo: yes
   command: sudo nvram SystemAudioVolume=" "
 
 - name: set menubar
@@ -247,13 +243,18 @@
   command: defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
 - name: Stop iTunes from responding to the keyboard media keys
-  sudo: yes
   command: sudo launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
 
 - name: Copy Bitstream Vera Sans Mono to fonts
   copy:
-    src: "{{ playbook_dir }}/roles/osx/files/VeraMono.ttf"
-    dest: "{{ ansible_env.HOME }}/Library/Fonts/VeraMono.ttf"
+    src: "{{ playbook_dir }}/roles/osx/files/{{ item }}"
+    dest: "{{ ansible_env.HOME }}/Library/Fonts/{{ item }}"
+  with_items:
+    - HackRegular.otf
+    - HackBold.otf
+    - HackBoldItalic.otf
+    - HackItalic.otf
+    - VeraMono.ttf
 
 - name: Copy preferences for iTerm
   copy:

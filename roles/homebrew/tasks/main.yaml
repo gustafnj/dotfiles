@@ -5,6 +5,7 @@
     upgrade_all: yes
     state: latest
   with_items:
+    - ctags-exuberant
     - gcc
     - git
     - giter8

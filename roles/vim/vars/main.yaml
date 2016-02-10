@@ -3,6 +3,7 @@ pathogen_url: https://raw.githubusercontent.com/tpope/vim-pathogen/master/autolo
 vim_autoload: "{{ ansible_env.HOME }}/.vim/autoload"
 vim_bundle: "{{ ansible_env.HOME }}/.vim/bundle"
 vim_repos:
+  Raimondi/delimitMate: delimitMate
   vim-airline/vim-airline-themes: vim-airline
   hdima/python-syntax: python-syntax
   klen/python-mode: python-mode

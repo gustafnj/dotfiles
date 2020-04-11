@@ -2,10 +2,4 @@
 - hosts: localhost
   connection: local
   roles:
-    - homebrew
-    - homebrew_cask
     - dotfiles
-    - zsh
-    - vim
-    - python
-    - osx

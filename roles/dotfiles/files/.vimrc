@@ -159,6 +159,11 @@ let g:syntastic_mode_map = { "mode": "active",
 let g:pymode_rope=0
 let g:pymode_options_max_line_length=100
 
+" postgres
+let g:sql_type_default = 'pgsql'
+
 " open NERDtree
 map <leader>ne :NERDTreeToggle<CR>
 set tags=/Users/ng/tags
+let g:dbext_default_profile_dataoasis = 'dbname=d7b1hg0i83ht8e host=ec2-52-71-138-53.compute-1.amazonaws.com port=5432 user=udltelk4qvr9gt password=p2v9djiin2prkrbcf4k2concriq sslmode=require'
+"autocmd FileType sql setlocal shiftwidth=2 tabstop=2
